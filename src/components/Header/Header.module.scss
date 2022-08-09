@@ -1,0 +1,14 @@
+
+.header {
+  @apply fixed top-0 left-0 w-screen z-50;
+  &::before {
+    content: '';
+    @apply fixed top-0 left-0 w-screen -z-10 py-4 blur-2xl;
+    height: var(--headerHeight);
+    background: rgba(#000, 0.2);
+    backdrop-filter: blur(6px);
+  }
+  &_body {
+    @apply flex justify-between items-center gap-4 py-4;
+  }
+}

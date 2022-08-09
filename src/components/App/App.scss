@@ -8,5 +8,54 @@
 
 body {
   //@apply bg-gradient-to-r from-light-from to-light-to dark:from-dark-from dark:to-dark-to;
-  @apply text-light-text dark:text-dark-text;
+}
+
+.app {
+  @apply transition-all text-light-text dark:text-dark-text bg-light dark:bg-dark grid;
+  grid-template-areas: 'header'
+  'main'
+  'footer';
+
+  header {
+    grid-area: header;
+    height: var(--headerHeight);
+  }
+
+  main {
+    grid-area: main;
+    margin-top: var(--headerHeight);
+    min-height: calc(150vh - (var(--headerHeight) * 2));
+  }
+
+  footer {
+    grid-area: footer;
+    height: var(--headerHeight);
+    @apply flex gap-4 py-4;
+  }
+
+  .container {
+    width: clamp(300px, 90vw, 1200px);
+    margin: 0 auto;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    @apply text-inherit no-underline;
+  }
+
+  .btn {
+    @apply px-4 py-2 border-0 rounded-xl bg-brand-purple text-dark-text;
+  }
+}
+
+
+:focus {
+  outline: none;
+}
+
+:root {
+  --headerHeight: 72px;
 }
