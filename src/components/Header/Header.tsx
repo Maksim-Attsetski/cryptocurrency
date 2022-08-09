@@ -13,11 +13,11 @@ const Header: FC = () => {
     return (
         <header className={style.header}>
             <div className={style.header_body + ' container'}>
-                <div>
+                <div className={'flex gap-4'}>
                     <NavLink to={HOME}>Home</NavLink>
                     <NavLink to={COINS}>Coins</NavLink>
                 </div>
-                <button className='btn'
+                <button className={'btn border-amber-400'}
                         onClick={() => dispatch(changeTheme())}>
                     {isDark ? 'Dark' : 'Light'}
                 </button>

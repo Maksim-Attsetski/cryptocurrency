@@ -10,5 +10,12 @@
   }
   &_body {
     @apply flex justify-between items-center gap-4 py-4;
+    a {
+      @apply transition-all px-4 py-2 border-0 text-dark-text;
+      &:hover {
+        @apply rounded-xl bg-brand-purple;
+        letter-spacing: 1px;
+      }
+    }
   }
 }

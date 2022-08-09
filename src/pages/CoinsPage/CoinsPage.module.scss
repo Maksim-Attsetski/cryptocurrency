@@ -1,0 +1,16 @@
+
+.coins {
+  .coins_list {
+    @apply flex flex-wrap justify-around items-center gap-10;
+    .coin {
+      @apply transition-all shadow-blue-300 p-4 rounded-xl shadow-2xl flex gap-4 items-center cursor-pointer;
+      &:hover {
+        @apply shadow-blue-300 shadow-lg;
+      }
+
+      img {
+        @apply w-20 h-20 lg:w-32 lg:h-32;
+      }
+    }
+  }
+}

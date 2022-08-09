@@ -4,13 +4,20 @@ import {routeNames} from "./routeNames";
 import Layout from "../components/Layout";
 import HomePage from "../pages/HomePage/HomePage";
 import CoinsPage from "../pages/CoinsPage/CoinsPage";
-import CoinsList from "../components/CoinsList/CoinsList";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
+import {useTypedDispatch} from "../hooks/redux";
+import {setTheme} from "../redux/slices/themeSlice";
+import Coin from "../components/Coin/Coin";
 
 const AllRoutes: FC = () => {
     const {pathname} = useLocation()
     const navigate = useNavigate()
-    const {COINS, COINS_EXCHANGES, HOME, COINS_LIST} = routeNames
+    const dispatch = useTypedDispatch()
+    const {COINS, COINS_EXCHANGES, HOME} = routeNames
+
+    useEffect(() => {
+        dispatch(setTheme())
+    }, [])
 
     useEffect(() => {
         if (pathname === '/') {
@@ -21,11 +28,11 @@ const AllRoutes: FC = () => {
     return (
         <Routes>
             <Route path={HOME} element={<Layout/>}>
-                <Route path={HOME} element={<HomePage/>} />
-                <Route path={COINS} element={<CoinsPage/>} />
-                <Route path={COINS_LIST} element={<CoinsList/>} />
-                <Route path={HOME + '*'} element={<NotFoundPage/>} />
+                <Route path={HOME} element={<HomePage/>}/>
+                <Route path={COINS} element={<CoinsPage/>}/>
+                <Route path={COINS + ':name'} element={<Coin/>}/>
             </Route>
+            <Route path={'/*'} element={<NotFoundPage/>}/>
         </Routes>
     );
 };

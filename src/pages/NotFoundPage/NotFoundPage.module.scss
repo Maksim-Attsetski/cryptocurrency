@@ -1,4 +1,13 @@
 
 .notFound {
-  @apply min-h-screen flex justify-center items-center;
+  @apply min-h-screen w-screen flex justify-center items-center;
+  &_body {
+    @apply flex flex-col gap-4 text-xl;
+  }
+  &_text {
+    @apply text-3xl;
+    strong {
+      @apply uppercase;
+    }
+  }
 }
